@@ -22,4 +22,24 @@ class Dosen extends Model
         'foto',
         'program_studi_id',
     ];
+
+    public function prodi()
+    {
+        return $this->belongsTo(ProgramStudi::class, 'program_studi_id');
+    }
+
+    public function kelas()
+    {
+        return $this->hasMany(Kelas::class, 'dosen_id');
+    }
+
+    public function mahasiswaBimbingan()
+    {
+        return $this->hasMany(Mahasiswa::class, 'dosen_wali_id');
+    }
+
+    public function bimbinganAkademik()
+    {
+        return $this->hasMany(BimbinganAkademik::class, 'dosen_id');
+    }
 }

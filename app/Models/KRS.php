@@ -16,4 +16,14 @@ class KRS extends Model
         'tahun_akademik',
         'status_krs',
     ];
+
+    public function mahasiswa()
+    {
+        return $this->belongsTo(Mahasiswa::class, 'mahasiswa_id');
+    }
+
+    public function jadwal()
+    {
+        return $this->belongsTo(JadwalMataKuliah::class, 'jadwal_id');
+    }
 }

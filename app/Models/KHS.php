@@ -16,4 +16,14 @@ class KHS extends Model
         'ips',
         'ipk',
     ];
+
+    public function mahasiswa()
+    {
+        return $this->belongsTo(Mahasiswa::class, 'mahasiswa_id');
+    }
+
+    public function transkripNilai()
+    {
+        return $this->hasMany(TranskripNilai::class, 'khs_id');
+    }
 }

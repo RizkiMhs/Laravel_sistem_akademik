@@ -17,4 +17,14 @@ class BimbinganAkademik extends Model
         'catatan',
         'status',
     ];
+
+    public function mahasiswa()
+    {
+        return $this->belongsTo(Mahasiswa::class, 'mahasiswa_id');
+    }
+
+    public function dosen()
+    {
+        return $this->belongsTo(Dosen::class, 'dosen_id');
+    }
 }

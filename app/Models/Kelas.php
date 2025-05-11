@@ -15,4 +15,19 @@ class Kelas extends Model
         'mata_kuliah_id',
         'dosen_id',
     ];
+
+    public function matkul()
+    {
+        return $this->belongsTo(MataKuliah::class, 'mata_kuliah_id');
+    }
+
+    public function dosen()
+    {
+        return $this->belongsTo(Dosen::class, 'dosen_id');
+    }
+
+    public function jadwal()
+    {
+        return $this->hasMany(JadwalMataKuliah::class, 'kelas_id');
+    }
 }

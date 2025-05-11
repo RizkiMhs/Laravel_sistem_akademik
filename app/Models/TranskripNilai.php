@@ -15,4 +15,14 @@ class TranskripNilai extends Model
         'nilai_akhir',
         'grade',
     ];
+
+    public function khs()
+    {
+        return $this->belongsTo(KHS::class, 'khs_id');
+    }
+
+    public function mataKuliah()
+    {
+        return $this->belongsTo(MataKuliah::class, 'mata_kuliah_id');
+    }
 }

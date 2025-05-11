@@ -14,8 +14,18 @@ class MataKuliah extends Model
         'sks',
         'program_studi_id',
     ];
-    public function programStudi()
+    public function prodi()
     {
-        return $this->belongsTo(ProgramStudi::class);
+        return $this->belongsTo(ProgramStudi::class, 'program_studi_id');
+    }
+
+    public function kelas()
+    {
+        return $this->hasMany(Kelas::class, 'mata_kuliah_id');
+    }
+
+    public function transkripNilai()
+    {
+        return $this->hasMany(TranskripNilai::class, 'mata_kuliah_id');
     }
 }
